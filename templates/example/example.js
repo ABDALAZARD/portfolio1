@@ -1,9 +1,8 @@
 $(document).ready(function() {
+    $('.modal').modal();
 
     // Stacks
-
     $('#PHP').on('mouseenter', function() {
-        console.log('Mouse sobre PHP');
         $('#PHP').css('background-color', 'black')
         .css('color','white')
 
@@ -11,7 +10,6 @@ $(document).ready(function() {
         .css('color','white')
         
     }).on('mouseleave', function() {
-        console.log('Mouse fora de PHP');
         $('#PHP').css('background-color', 'white')
         .css('color','black')
         
@@ -19,14 +17,12 @@ $(document).ready(function() {
         .css('color','black')         
     });
     $('#Laravel').on('mouseenter', function() {
-        console.log('Mouse sobre Laravel');
         $('#Laravel').css('background-color', 'black')
         .css('color','white')
         
         // Dentro da ferramenta Laravel, lado profile
         
     }).on('mouseleave', function() {
-        console.log('Mouse fora de Laravel');
         $('#Laravel').css('background-color', 'white')
         .css('color','black')
         
@@ -34,7 +30,6 @@ $(document).ready(function() {
         
     });
     $('#JQuery').on('mouseenter', function() {
-        console.log('Mouse sobre JQuery');
         $('#JQuery').css('background-color', 'black')
             .css('color','white')
             
@@ -44,7 +39,6 @@ $(document).ready(function() {
         // Dentro da ferramenta JQuery, lado profile
         
     }).on('mouseleave', function() {
-        console.log('Mouse fora de JQuery');
         $('#JQuery').css('background-color', 'white')
         .css('color','black')
         
@@ -52,14 +46,12 @@ $(document).ready(function() {
         .css('color','black')        
     });
     $('#React').on('mouseenter', function() {
-        console.log('Mouse sobre React');
         $('#React').css('background-color', 'black')
         .css('color','white')
         
         // Dentro da ferramenta React, lado profile
         
     }).on('mouseleave', function() {
-        console.log('Mouse fora de React');
         $('#React').css('background-color', 'white')
         .css('color','black')
         
@@ -67,22 +59,18 @@ $(document).ready(function() {
         
     });
     $('#React-Native').on('mouseenter', function() {
-        console.log('Mouse sobre React-Native');
         $('#React-Native').css('background-color', 'black')
         .css('color','white')
         
         // Dentro da ferramenta React-Native, lado profile
         
     }).on('mouseleave', function() {
-        console.log('Mouse fora de React-Native');
         $('#React-Native').css('background-color', 'white')
         .css('color','black')
         
         // Dentro da ferramenta React-Native, lado profile
         
     });
-
-
 
     // Projetos
     $('#Portfolio_Creator').on('mouseenter', function() {
@@ -97,7 +85,6 @@ $(document).ready(function() {
         .css('color','white')
 
     }).on('mouseleave', function() {
-        console.log('Mouse fora de Portfolio Creator');
         $('#Portfolio_Creator').css('background-color', 'white')
         .css('color','black')
 
@@ -107,5 +94,14 @@ $(document).ready(function() {
         $('#JQuery').css('background-color', 'white')
         .css('color','black')
                 
+    });
+
+    // Others
+    $('#palestra1').on('mouseenter', function() {
+        $('#palestra1').css('background-color', 'black')
+        .css('color','white')       
+    }).on('mouseleave', function() {
+        $('#palestra1').css('background-color', 'white')
+        .css('color','black')
     });
 });
