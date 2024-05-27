@@ -4,15 +4,37 @@
             <div class="col s6 profile" id="profile">
                 <div class="wrapper">
                     <div class="inner" data-onvisible-trigger="1">
-                        <div class="foto">
-                            <span class="frame">
-                                <img class="foto" loading="lazy" src="<?php echo '../../../' . $profile['profile']; ?>"
-                                    alt="Foto" />
-                            </span>
+                        <div class="contact-info">
+                            <div class="foto">
+                                <span class="frame">
+                                    <img class="foto" loading="lazy"
+                                        src="<?php echo '../../../' . $profile['profile']; ?>" alt="Foto" />
+                                </span>
+                            </div>
+                            <ul class="icons">
+                                <li>
+                                    <a class="contact email" aria-label="email">
+                                        <span class="text-contact"><?php echo $social['email']; ?></span>
+                                    </a>
+                                </li>
+                                <li><a class="contact" href="https://linkedin.com/in/<?php echo $social['linkedin']; ?>"
+                                        aria-label="LinkedIn"><svg>
+                                            <use class="image_contact"
+                                                xlink:href="#icon-bf393d6ea48a4e69e1ed58a3563b94a5">
+                                            </use>
+                                        </svg><span class="text-contact">LinkedIn</span>
+                                    </a>
+                                </li>
+                                <li><a class="contact" href="https://github.com/<?php echo $social['github']; ?>"
+                                        aria-label="GitHub"><svg>
+                                            <use class="image_contact" id="contact"
+                                                xlink:href="#icon-8c4b37645de3c276d895d87df51ba614">
+                                            </use>
+                                        </svg><span class="text-contact">GitHub</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
-                        <h2 id="text05" class="presentation"><?php echo $profile['title']; ?></h2>
-                        <!-- <p id="text13" class="subtitle"><?php echo $profile['subtitle']; ?></p> -->
-
                         <div class="stacks-dropdown">
                             <ul class="stacks">
                                 <?php
@@ -22,8 +44,8 @@
                                     }
                                 ?>
                             </ul>
-                            <ul class="frameworks">
-                            </ul>
+                            <!-- <ul class="frameworks">
+                            </ul> -->
                         </div>
                     </div>
                 </div>
