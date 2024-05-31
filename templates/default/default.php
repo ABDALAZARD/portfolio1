@@ -1,4 +1,3 @@
-<body>
     <div id="wrapper">
         <div id="main">
             <div class="inner">
@@ -7,11 +6,13 @@
                         <div class="inner" data-onvisible-trigger="1">
                             <div id="image04" class="style1 image">
                                 <span class="frame">
-                                <img loading="lazy" src="<?php echo '../../../' . $profile['profile']; ?>" alt="Foto" width="130" height="150" />
+                                    <img loading="lazy" src="<?php echo '../../../' . $profile['profile']; ?>"
+                                        alt="Foto" width="130" height="150" />
                                 </span>
                             </div>
                             <h2 id="text05" class="style1"><?php echo $profile['title']; ?></h2>
-                            <p id="text13" class="style2" style="font-size: 20px"><?php echo $profile['subtitle']; ?></p>
+                            <p id="text13" class="style2" style="font-size: 20px"><?php echo $profile['subtitle']; ?>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -60,7 +61,7 @@
                 <div id="container03" class="style1 container default">
                     <div class="wrapper">
                         <div class="inner" data-onvisible-trigger="1">
-                        <h2 id="text07" class="style3">Talks, workshops, articles...</h2>
+                            <h2 id="text07" class="style3">Talks, workshops, articles...</h2>
                             <br><br>
                             <ul id="buttons04" class="style1 buttons">
                                 <?php foreach ($others as $other) { ?>
@@ -85,7 +86,8 @@
                                     <div class="modal-footer">
                                         <div class="row">
                                             <div class="col s7">
-                                                <a href="<?php echo $other['banner_link']; ?>">Link: <?php echo $other['title']; ?></a>
+                                                <a href="<?php echo $other['banner_link']; ?>">Link:
+                                                    <?php echo $other['title']; ?></a>
                                             </div>
                                         </div>
                                     </div>
@@ -103,7 +105,7 @@
                 <div id="container03" class="style1 container default">
                     <div class="wrapper">
                         <div class="inner" data-onvisible-trigger="1">
-                        <h2 id="text07" class="style3">How to find about me: </h2>
+                            <h2 id="text07" class="style3">How to find about me: </h2>
                             <ul id="icons01" class="style1 icons">
                                 <li><a class="n01" href="https://linkedin.com/in/<?php echo $social['linkedin']; ?>"
                                         aria-label="LinkedIn"><svg>
@@ -124,5 +126,3 @@
                 <p id="text02"><?php echo $social['email']; ?></p>
             </div>
         </div>
-</body>
-
