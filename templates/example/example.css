@@ -1,24 +1,157 @@
-.title{
-    color: red;
-    text-align: center;
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.btnA{
-    background-color: green;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-
+.profile,
+.professional {
+    padding: 10px;
 }
 
-.btnB{
-    background-color: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-
+.profile {
+    border-right: 1px solid #ccc;
 }
+
+.foto img {
+    border: 2px solid black;
+    border-radius: 50%;
+    width:130px;
+    height: 130px;
+    margin-left: 100px;
+}
+
+.presentation {
+    font-size: 30px;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.professional {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+}
+
+.stacks {
+    text-align: end;
+}
+
+.stacks-dropdown {
+    position: relative;
+}
+
+.frameworks {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    min-width: 100px;
+}
+
+.stack1 {
+    text-decoration: none;
+    color:black;
+    font-weight: 400;
+    cursor: default;
+}
+
+.stack2 {
+    text-decoration: none;
+    color:black;
+    font-weight: 400;
+}
+
+.templateBody {
+    margin-top: 50px;
+}
+
+/* Contacts */
+.contact {
+    text-decoration: none;
+    color:black;
+    font-weight: 400;
+}
+
+.contact-info {
+    display: flex;
+    border: 2px solid #f6f6f6;
+    padding: 5px;
+}
+
+.contact-info p {
+    margin-right: 10px;
+}
+
+
+.email {
+    margin-left: 65px;
+    margin: 20px;
+}
+
+.icons {
+    list-style-type: none; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+}
+
+.icons .contact {
+    display: flex; 
+    align-items: center;
+    margin-right: 20px; 
+}
+
+.icons .contact svg {
+    width: 20px;
+    height: 20px;
+}
+
+.text-contact {
+    font-size: 12px;
+}
+
+.icons li {
+    margin-bottom: 10px;
+}
+
+.title {
+    margin-left: 100px;
+    margin-bottom: 35px;
+}
+
+.modal {
+    overflow-y: none;
+    overflow-x: none;
+
+    position: fixed;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    width: 250px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .close-button {
+    align-self: flex-end;
+    margin-top: auto;
+    margin-bottom: 20px;
+    size: 20px;
+  }

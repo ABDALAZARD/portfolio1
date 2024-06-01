@@ -1,4 +1,3 @@
-
 <nav style='position: fixed; top: 0; width: 100%; z-index: 100;'>
     <div class='nav-wrapper black'>
         <ul id='nav-mobile' class='left'>
@@ -12,7 +11,8 @@
             </li>
         </ul>
         <ul class='right'>
-            <li><a class='waves-effect waves-dark btn white modal-trigger' href='#modalCreateTemplate' style="color:black">Create Template</a>
+            <li><a class='waves-effect waves-dark btn white modal-trigger' href='#modalCreateTemplate'
+                    style="color:black">Create Template</a>
             </li>
         </ul>
     </div>
@@ -25,7 +25,7 @@
                 <h4 class="newTemplateTitle">My New Template</h4>
                 <div class="row">
                     <div class="col s12">
-                    <label for="template_name" class="left">Template name</label>
+                        <label for="template_name" class="left">Template name</label>
 
                         <input type="text" class="template_name" id="template_name" name="template_name">
                     </div>
@@ -48,13 +48,13 @@
     </div>
     <div class="templateList">
         <div class="row">
-        <?php if ($templates) { ?>
+            <?php if ($templates) { ?>
             <div class="col s9">
                 <select id="template" class="template" name="template">
                     <option value="" disabled selected>Choose your option</option>
                     <?php
                         foreach ($templates as $temp) { ?>
-                            <option value="<?php echo $temp['id']; ?>"><?php echo $temp['name'];  ?></option>
+                    <option value="<?php echo $temp['id']; ?>"><?php echo $temp['name']; ?></option>
                     <?php }?>
                 </select>
             </div>
@@ -66,28 +66,97 @@
                 echo "<h6 class='center'>You can add a new template in the admin page <a href='#'>here</a></h6>";
             }?>
         </div>
-    </div>    
+    </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+$(document).ready(function() {
+    var selectedTemplateId;
+    var urlParams = new URLSearchParams(window.location.search);
+    var message = urlParams.get('templateCreated');
+
+    if (message) {
+        M.toast({
+            html: message
+        });
+    }
+
+    $('#backButton').on('click', function() {
+        window.history.back();
+    });
+
+    $('#chooseTemplate').on('click', (function(e) {
+        e.preventDefault();
+        var template = $('#template').val();
+        $.ajax({
+            url: '../../../src/Devfolio/Template.php',
+            type: 'GET',
+            data: {
+                template: template,
+                action: 'chooseTemplate'
+            },
+            success: function(data) {
+                let newTemplate = JSON.parse(data);
+                let url = new URL(window.location.href);
+                url.searchParams.set('newTemplate', JSON.stringify(newTemplate));
+                window.location.href = url.href;
+                console.log(data);
+                $('#modal').hide()
+            },
+            error: function(error) {
+                console.log('seu retorno deu erro: ', error);
+            }
+        });
+    }));
+
+    $('#template').change(function() {
+        selectedTemplateId = $(this).val();
+        console.log(selectedTemplateId)
+    })
+
+    $('#publish').on('click', function(event) {
+        // event.preventDefault();
+
+        var formStatus = new FormData();
+        formStatus.append('status', 1);
+        formStatus.append('template', selectedTemplateId);
+        formStatus.append('action', 'setStatus');
+
+        $.ajax({
+            url: '../../../src/Devfolio/Create/Status.php',
+            type: 'POST',
+            processData: false,
+            contentType: false,
+            data: formStatus,
+            success: function(data) {
+                let statusMsg = 'Your Devfolio project is published!';
+                location.href = '../dashboard.php?statusMsg=' + statusMsg;
+            },
+            error: function(error) {
+                console.log('Publish button not good!')
+            }
+        });
+    });
+
+    $('body').fadeIn();
+    $('.modal').modal();
+
     var elems = document.querySelectorAll('.modal');
     var instances = M.Modal.init(elems, {
-        inDuration: 500, // Ajuste este valor para o que você achar melhor
+        inDuration: 500,
     });
 
     $('#modalCreateTemplate').css({
         "width": 450,
         "height": 400,
         "padding": 10,
-        "background-color": "white", // Cor de fundo verde
-        "border": "1px solid green" // Borda fina verde
+        "background-color": "white",
+        "border": "1px solid green"
     })
 
     $('#createTemplate').on('click', function() {
         var template_name = $('#template_name').val();
         $.ajax({
-        url: '../../../src/Devfolio/Create/Template.php',
+            url: '../../../src/Devfolio/Create/Template.php',
             type: 'POST',
             data: {
                 template_name: template_name,
@@ -95,14 +164,15 @@
             },
             success: function(data) {
                 let templateCreated = JSON.parse(data);
-                instances[0].close(); 
-                window.location.href = "visualization.php?templateCreated=" + encodeURIComponent("Template " + template_name + " created successfully");
-           },
+                instances[0].close();
+                window.location.href = "visualization.php?templateCreated=" +
+                    encodeURIComponent("Template " + template_name +
+                        " created successfully");
+            },
             error: function(data) {
                 console.log("Erro: ", data);
             }
         })
     });
 });
-    
 </script>

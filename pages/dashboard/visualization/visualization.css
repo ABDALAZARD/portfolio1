@@ -32,3 +32,8 @@
     margin-bottom: 100px;
 }
 
+
+body.loaded {
+    margin-top: 100px;
+    display: block;
+  }

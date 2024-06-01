@@ -2,6 +2,7 @@
 include 'src/Devfolio/Devfolio.php';
 include "db/Connection.php";
 require_once (__DIR__.'/vendor/autoload.php');
+include_once 'icon/network.php';
 
 $con = new Connection;
 
@@ -21,9 +22,8 @@ try {
     $social = $getPort->getContacts($getPage);
 
     $templatePath = "templates/" . $template['name'] . "/" . $template['name'];
-    include_once 'icon/network.php';
-    include $templatePath . '.php';
-    
+
+
     echo "<head>
     <meta charset='utf-8'>
     <link rel='stylesheet' type='text/css' href='".$templatePath.".css'>
@@ -35,13 +35,20 @@ try {
     <title>Portfolio</title>
     </head>
     <script>
-            $(window).on('load', function() {
-                $('body').fadeIn();
-            });
-            $(document).ready(function(){
-                $('.modal').modal();
-            });
-        </script>";
+    
+        $(window).on('load', function() {
+            $('body').fadeIn();
+        });
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+
+
+    </script>
+    <body>";
+        include $templatePath . '.php';
+    echo "</body>
+    </html>";
         
 } catch (Exception $e) {
     $msg = "Erro: " . $e->getMessage() . "\nYou don't have anything registered!";
